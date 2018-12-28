@@ -48,10 +48,10 @@ pipeline {
             }
         }
         stage('DeployToProduction') {
-            steps {
                 environment {
                     CANARY_REPLICAS = 0
                 }
+            steps {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
