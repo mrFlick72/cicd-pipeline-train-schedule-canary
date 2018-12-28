@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: train-schedule-service
+  name: train-schedule-service-canary
 spec:
   type: NodePort
   selector:
@@ -17,7 +17,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: train-schedule-deployment
+  name: train-schedule-deployment-canary
   labels:
     app: train-schedule
 spec:
@@ -25,7 +25,7 @@ spec:
   selector:
     matchLabels:
       app: train-schedule
-      track: stable
+      track: canary
   template:
     metadata:
       labels:
